@@ -1,0 +1,1581 @@
+/* ===========================
+   CSS VARIABLES
+=========================== */
+:root {
+  --primary:      #2563eb;
+  --primary-dark: #1d4ed8;
+  --dark:         #0f172a;
+  --text:         #475569;
+  --light-bg:     #f1f5f9;
+  --white:        #ffffff;
+  --border:       #e2e8f0;
+  --card-shadow:  0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* ===========================
+   RESET & BASE
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===========================
+   UTILITIES
+=========================== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 90px 0;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+
+/* Outline button — transparent with a border */
+.btn-outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+  box-shadow: none;
+}
+
+/* White button — used on coloured backgrounds */
+.btn-white {
+  background-color: var(--white);
+  color: var(--primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.btn-white:hover {
+  background-color: #e0eaff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Small nav CTA button */
+.btn-nav {
+  padding: 10px 22px;
+  font-size: 14px;
+}
+
+/* ---- Section title block ---- */
+.section-title {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Small coloured label above the heading */
+.section-label {
+  display: inline-block;
+  background-color: #eff6ff;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.section-title h2 {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.section-title p {
+  font-size: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+
+/* ===========================
+   HEADER & NAVBAR
+=========================== */
+#header {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Subtle shadow that appears on scroll via JS */
+  transition: box-shadow 0.3s;
+}
+
+#header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--dark);
+  position: relative;
+  transition: color 0.2s;
+}
+
+/* Underline that slides in on hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.25s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary);
+}
+
+/* Right side of navbar */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Hamburger — hidden on desktop, shown on mobile via media query */
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--dark);
+  transition: background-color 0.2s;
+}
+
+.hamburger:hover {
+  background-color: var(--light-bg);
+}
+
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1d4ed8 100%);
+  color: var(--white);
+  padding: 110px 0 120px;
+  position: relative;
+  overflow: hidden; /* Keeps the blobs from causing scrollbars */
+}
+
+/* Decorative blurred circles in the background */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  pointer-events: none; /* Can't be clicked */
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: #3b82f6;
+  top: -150px;
+  right: -100px;
+}
+
+.blob-2 {
+  width: 350px;
+  height: 350px;
+  background: #6366f1;
+  bottom: -100px;
+  left: -80px;
+}
+
+.hero-content {
+  position: relative; /* Sits above the blobs */
+  max-width: 680px;
+}
+
+/* Small pill tag above the heading */
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.hero-content h1 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+/* Gradient highlight on the key word */
+.hero-content h1 span {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: #94a3b8;
+  margin-bottom: 40px;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* Two buttons side by side */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap; /* Wraps on very small screens */
+}
+
+
+/* ===========================
+   STATS BAR
+=========================== */
+.stats-bar {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 0;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 48px;
+}
+
+.stat-item strong {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.stat-item span {
+  font-size: 14px;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+/* Vertical divider between stats */
+.stat-divider {
+  width: 1px;
+  height: 48px;
+  background-color: var(--border);
+}
+
+
+/* ===========================
+   WHAT WE DO (SERVICES)
+=========================== */
+.services {
+  background-color: var(--light-bg);
+}
+
+/* 4-column grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 32px 26px;
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  border-top: 3px solid transparent; /* Coloured top border appears on hover */
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-top-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon box */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  background-color: #eff6ff;
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.card:hover .card-icon {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* "Learn more" link at the bottom of each card */
+.card-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.card-link:hover {
+  gap: 10px; /* Arrow slides right on hover */
+}
+
+
+/* ===========================
+   TESTIMONIALS
+=========================== */
+.testimonials {
+  background-color: var(--white);
+}
+
+/* 2-column grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.testimonial-card {
+  background-color: var(--light-bg);
+  padding: 36px;
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  border-left: 4px solid var(--primary); /* Blue left accent bar */
+  transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Gold star row */
+.stars {
+  color: #f59e0b;
+  font-size: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 3px;
+}
+
+.testimonial-card p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-style: italic;
+  color: var(--dark);
+}
+
+/* Author row: avatar + name/role */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Initials circle */
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: 15px;
+  color: var(--dark);
+}
+
+.testimonial-author span {
+  font-size: 13px;
+  color: var(--text);
+}
+
+
+/* ===========================
+   CTA SECTION
+=========================== */
+.cta {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1d4ed8 100%);
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blobs — same technique as the hero */
+.cta::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: #6366f1;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.2;
+  top: -150px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #3b82f6;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  bottom: -100px;
+  left: -80px;
+  pointer-events: none;
+}
+
+/* Content sits above the blobs */
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.cta-content p {
+  font-size: 17px;
+  margin-bottom: 36px;
+  opacity: 0.85;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background-color: #080f1e; /* Slightly deeper than --dark for contrast */
+  color: #94a3b8;
+  border-top: 1px solid #1e293b;
+}
+
+/* Top section: 4 columns */
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding: 72px 0 56px;
+}
+
+/* White logo in footer */
+.logo-white {
+  color: var(--white);
+  margin-bottom: 16px;
+  display: inline-flex;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 240px;
+  margin-bottom: 28px;
+  color: #64748b;
+}
+
+/* Social icons row */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  width: 38px;
+  height: 38px;
+  background-color: #1e293b;
+  color: #64748b;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: background-color 0.25s, color 0.25s, transform 0.2s;
+}
+
+.social-icons a:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+/* Footer column heading */
+.footer-col h4 {
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1e293b; /* Subtle underline under each heading */
+}
+
+/* Footer nav links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+  gap: 12px; /* Slight nudge on hover for icon links */
+}
+
+/* Bottom copyright bar */
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  padding: 24px 0;
+  font-size: 13px;
+  text-align: center;
+  color: #475569;
+}
+
+
+/* ===========================
+   RESPONSIVE — TABLET (max 900px)
+=========================== */
+@media (max-width: 900px) {
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  /* 2 columns for service cards */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 2 columns for footer */
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* ===========================
+   RESPONSIVE — MOBILE (max 768px)
+   Hamburger appears, nav links collapse
+=========================== */
+@media (max-width: 768px) {
+
+  /* Hide desktop nav links by default */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 61px;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    padding: 28px 5%;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    z-index: 99;
+  }
+
+  /* JS adds this class to open the menu */
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Show hamburger button */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide the "Let's Talk" CTA button — hamburger replaces it */
+  .btn-nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 80px 0 90px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  /* Single column cards */
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Single column testimonials */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Single column footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .cta-content h2 {
+    font-size: 28px;
+  }
+
+  /* Stack stats vertically */
+  .stats-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+}
+
+
+/* ===========================
+   PAGE HERO (used on About, Services, Contact)
+   Smaller banner — not full screen like home
+=========================== */
+.page-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1d4ed8 100%);
+  color: var(--white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.page-hero-label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.page-hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 680px;
+  margin: 0 auto;
+  letter-spacing: -0.5px;
+}
+
+
+/* ===========================
+   STORY & MISSION SECTION
+=========================== */
+.about-story {
+  background-color: var(--white);
+}
+
+/* Two columns: story text on left, mission card on right */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.story-content .section-label {
+  margin-bottom: 14px;
+}
+
+.story-content h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+/* Each paragraph in the story has spacing below it */
+.story-content p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* Mission card — styled box on the right */
+.mission-card {
+  background-color: var(--light-bg);
+  border-radius: 16px;
+  padding: 40px 36px;
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--card-shadow);
+}
+
+.mission-icon {
+  width: 52px;
+  height: 52px;
+  background-color: #eff6ff;
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.mission-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+
+.mission-card p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* ===========================
+   VALUES SECTION
+=========================== */
+.values {
+  background-color: var(--light-bg);
+}
+
+/* 3 equal columns */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.value-card {
+  background-color: var(--white);
+  padding: 36px 28px;
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+}
+
+.value-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #eff6ff;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 20px;
+}
+
+.value-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* ===========================
+   TEAM SECTION
+=========================== */
+.team {
+  background-color: var(--white);
+}
+
+/* 3-column grid for team cards */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.team-card {
+  background-color: var(--light-bg);
+  border-radius: 16px;
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Photo placeholder — coloured circle with initials */
+.team-photo {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.team-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+/* Role text below the name */
+.team-card p {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+
+/* ===========================
+   ABOUT PAGE — RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+
+  /* Stack story and mission vertically */
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* 2 columns for team on tablet */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .page-hero h1 {
+    font-size: 28px;
+  }
+
+  /* Single column values */
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Single column team */
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* ===========================
+   SERVICES PAGE
+=========================== */
+.services-detail {
+  background-color: var(--light-bg);
+}
+
+/* 2x2 grid for the 4 service cards */
+.services-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+/* Each service card */
+.service-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: var(--card-shadow);
+  border-top: 3px solid transparent;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column; /* Stacks content so button sits at the bottom */
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-top-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Large icon box at the top of each card */
+.service-card-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #eff6ff;
+  color: var(--primary);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 22px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.service-card:hover .service-card-icon {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.service-card > p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* Bullet feature list inside each card */
+.service-features {
+  list-style: none;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* flex-grow pushes the button to the bottom of the card */
+  flex-grow: 1;
+}
+
+.service-features li {
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Green tick icon */
+.service-features li i {
+  color: #22c55e;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* Dark outline button variant for service cards */
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--dark);
+  border: 2px solid var(--border);
+  box-shadow: none;
+  align-self: flex-start; /* Don't stretch full width */
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+
+/* ===========================
+   WHY CHOOSE US
+=========================== */
+.why-us {
+  background-color: var(--white);
+}
+
+/* 3 equal columns */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.why-card {
+  background-color: var(--light-bg);
+  border-radius: 14px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+}
+
+.why-icon {
+  width: 58px;
+  height: 58px;
+  background-color: #eff6ff;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 18px;
+}
+
+.why-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* ===========================
+   MODAL
+=========================== */
+
+/* Dark semi-transparent overlay behind the modal */
+.modal-overlay {
+  position: fixed;       /* Stays in place when you scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+  /* Hidden by default — JS toggles this */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* When JS adds the 'active' class, the modal becomes visible */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* The white modal box */
+.modal-box {
+  background-color: var(--white);
+  border-radius: 18px;
+  padding: 48px 44px;
+  max-width: 580px;
+  width: 100%;
+  position: relative;
+  /* Slides up slightly when opening */
+  transform: translateY(20px);
+  transition: transform 0.3s;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+/* X close button in the top-right corner */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--light-bg);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* Icon + title row at the top of the modal */
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.modal-icon {
+  width: 52px;
+  height: 52px;
+  background-color: #eff6ff;
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.modal-box h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+/* Body paragraph */
+.modal-box p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+
+
+/* ===========================
+   SERVICES PAGE — RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+
+  /* Stack service cards to single column on tablet */
+  .services-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  /* Single column why cards */
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tighter modal padding on mobile */
+  .modal-box {
+    padding: 36px 24px;
+  }
+
+}
+
+
+/* ===========================
+   CONTACT PAGE
+=========================== */
+.contact-section {
+  background-color: var(--light-bg);
+}
+
+/* Two columns: info on left, form on right */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: start;
+}
+
+
+/* ---- Left side: contact info ---- */
+.contact-info h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.contact-info > p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+/* Three info cards stacked vertically */
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--white);
+  padding: 20px 22px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s;
+}
+
+.info-card:hover {
+  transform: translateX(4px);
+}
+
+/* Icon circle */
+.info-icon {
+  width: 46px;
+  height: 46px;
+  background-color: #eff6ff;
+  color: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.info-card h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.info-card a,
+.info-card span {
+  font-size: 15px;
+  color: var(--dark);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.info-card a:hover {
+  color: var(--primary);
+}
+
+/* Social row below info cards */
+.contact-social p {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+
+/* ---- Right side: form ---- */
+.contact-form-wrap {
+  background-color: var(--white);
+  border-radius: 18px;
+  padding: 48px 44px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Name + Email sit side by side */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Each label + input group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+/* Input and textarea share the same style */
+.form-group input,
+.form-group textarea {
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  background-color: var(--light-bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  resize: vertical; /* Only textarea can be resized vertically */
+}
+
+/* Blue border + glow when focused */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background-color: var(--white);
+}
+
+/* Red border when field has an error */
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Error message text below the field */
+.error-msg {
+  font-size: 13px;
+  color: #ef4444;
+  margin-top: 6px;
+  min-height: 18px; /* Stops layout jumping when message appears */
+  font-weight: 500;
+}
+
+/* Full-width submit button */
+.btn-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 15px;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+
+/* ---- Success message (hidden by default) ---- */
+.form-success {
+  display: none; /* JS changes this to 'flex' after submit */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon {
+  font-size: 56px;
+  color: #22c55e;
+  margin-bottom: 20px;
+}
+
+.form-success h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.form-success p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+
+/* ===========================
+   CONTACT PAGE — RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+
+  /* Stack info and form vertically */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  /* Stack name + email fields vertically */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-wrap {
+    padding: 32px 24px;
+  }
+
+}

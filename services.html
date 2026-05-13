@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - TechFlow</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="header">
+    <nav class="navbar container">
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-bolt"></i> TechFlow
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-nav">Let's Talk</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero-label">What We Offer</p>
+      <h1>Good work, done properly — every single time.</h1>
+    </div>
+  </section>
+
+
+  <!-- ===== SERVICES CARDS ===== -->
+  <section class="services-detail">
+    <div class="container">
+
+      <div class="section-title">
+        <p class="section-label">Our Services</p>
+        <h2>Everything you need to grow online.</h2>
+        <p>We keep things focused. Four core services, done really well — rather than doing everything badly.</p>
+      </div>
+
+      <div class="services-detail-grid">
+
+        <!-- Card 1: Web Development -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>
+            We build websites and web apps that are fast, reliable, and easy to use. 
+            Whether it's a simple landing page or a complex platform, we write clean code 
+            that's built to last.
+          </p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Responsive on all devices</li>
+            <li><i class="fa-solid fa-check"></i> Performance optimised</li>
+            <li><i class="fa-solid fa-check"></i> Easy to maintain & update</li>
+          </ul>
+          <!-- Button opens the modal with this service's details -->
+          <button class="btn btn-outline-dark open-modal"
+            data-title="Web Development"
+            data-icon="fa-solid fa-code"
+            data-body="We've built everything from simple brochure sites to full-scale web applications. Our development process starts with understanding your goals — not just your brief. We use modern, standards-compliant code that's fast, accessible, and easy for your team to manage going forward. Every project includes thorough testing across browsers and devices before we hand anything over. We don't disappear after launch either — we're here if something needs tweaking.">
+            Read More <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Card 2: UI/UX Design -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-pen-ruler"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>
+            Design that actually makes sense to the people using it. We spend time 
+            understanding your users before we open a design tool — because good design 
+            starts with good questions.
+          </p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> User research & wireframing</li>
+            <li><i class="fa-solid fa-check"></i> Interactive prototypes</li>
+            <li><i class="fa-solid fa-check"></i> Consistent design systems</li>
+          </ul>
+          <button class="btn btn-outline-dark open-modal"
+            data-title="UI/UX Design"
+            data-icon="fa-solid fa-pen-ruler"
+            data-body="Great design isn't just about making things look nice — it's about making them work. We start every design project with research: who are your users, what do they need, and where are they getting stuck? From there we move into wireframes, then high-fidelity designs, then interactive prototypes you can actually click through. We work closely with you throughout the process so there are no surprises at the end. And if you already have a brand, we'll work within it — not over it.">
+            Read More <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Card 3: SEO Optimization -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>SEO Optimization</h3>
+          <p>
+            Getting found online shouldn't feel like a mystery. We cut through the noise 
+            and focus on what actually moves the needle — honest, sustainable SEO that 
+            builds real visibility over time.
+          </p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Technical SEO audits</li>
+            <li><i class="fa-solid fa-check"></i> Keyword & content strategy</li>
+            <li><i class="fa-solid fa-check"></i> Monthly reporting & insights</li>
+          </ul>
+          <button class="btn btn-outline-dark open-modal"
+            data-title="SEO Optimization"
+            data-icon="fa-solid fa-chart-line"
+            data-body="SEO has a reputation for being mysterious and full of jargon. We don't do that. We start with a full technical audit of your site, identify what's holding you back, and put together a clear plan to fix it. Then we work on the content and keyword strategy that gets you in front of the right people — not just more people. We send you a plain-English report every month so you always know what's happening and why. No vanity metrics, no fluff.">
+            Read More <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Card 4: Cloud Solutions -->
+        <div class="service-card">
+          <div class="service-card-icon">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+          <h3>Cloud Solutions</h3>
+          <p>
+            Infrastructure that just works — even when things get busy. We set up and 
+            manage cloud environments that are secure, scalable, and won't give you a 
+            headache at 2am.
+          </p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Cloud setup & migration</li>
+            <li><i class="fa-solid fa-check"></i> Security & backups</li>
+            <li><i class="fa-solid fa-check"></i> Ongoing monitoring & support</li>
+          </ul>
+          <button class="btn btn-outline-dark open-modal"
+            data-title="Cloud Solutions"
+            data-icon="fa-solid fa-cloud"
+            data-body="Whether you're moving to the cloud for the first time or your current setup is creaking under the pressure, we can help. We work with all the major cloud providers and will recommend the right fit for your needs and budget — not just the most expensive option. We handle the migration, set up proper security and backups, and keep an eye on things so you don't have to. If something goes wrong, we're on it before you even notice.">
+            Read More <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="why-us">
+    <div class="container">
+
+      <div class="section-title">
+        <p class="section-label">Why TechFlow</p>
+        <h2>We're a bit different — in a good way.</h2>
+        <p>Here's what you can expect when you work with us.</p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-lock-open"></i></div>
+          <h3>No lock-in contracts</h3>
+          <p>We earn your business every month. If you're not happy, you're free to walk away — no awkward conversations needed.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Fast turnaround</h3>
+          <p>We respect your time. We set realistic timelines and stick to them — and we'll always tell you if something changes.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-comments"></i></div>
+          <h3>Real humans, not bots</h3>
+          <p>When you message us, a real person replies. You'll have a dedicated point of contact who actually knows your project.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta">
+    <div class="container cta-content">
+      <h2>Not sure which service you need?</h2>
+      <p>That's completely fine — most people aren't. Just reach out and we'll have a chat about what makes sense for your situation.</p>
+      <a href="contact.html" class="btn btn-white">Talk to Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container footer-top">
+
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-white">
+          <i class="fa-solid fa-bolt"></i> TechFlow
+        </a>
+        <p>Building digital experiences that move businesses forward.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">Web Development</a></li>
+          <li><a href="services.html">UI/UX Design</a></li>
+          <li><a href="services.html">SEO Optimization</a></li>
+          <li><a href="services.html">Cloud Solutions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@techflow.io"><i class="fa-solid fa-envelope"></i> hello@techflow.io</a></li>
+          <li><a href="tel:+1234567890"><i class="fa-solid fa-phone"></i> +1 (234) 567-890</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 TechFlow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===== MODAL ===== -->
+  <!-- Single reusable modal — JS fills in the content dynamically -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+
+      <!-- Close button -->
+      <button class="modal-close" id="modalClose" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Icon + Title filled by JS -->
+      <div class="modal-header">
+        <div class="modal-icon" id="modalIcon"></div>
+        <h2 id="modalTitle"></h2>
+      </div>
+
+      <!-- Body text filled by JS -->
+      <p id="modalBody"></p>
+
+      <a href="contact.html" class="btn">Work With Us <i class="fa-solid fa-arrow-right"></i></a>
+
+    </div>
+  </div>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>
