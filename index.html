@@ -17,6 +17,18 @@
 
 <body>
 
+  <!-- ===== LOADING SCREEN ===== -->
+  <div class="loader" id="loader">
+    <div class="loader-logo">
+      <i class="fa-solid fa-bolt"></i> TechFlow
+    </div>
+    <div class="loader-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
   <!-- ===== HEADER / NAVBAR ===== -->
   <header id="header">
     <nav class="navbar container">
@@ -36,6 +48,9 @@
 
       <!-- Right side: CTA button + hamburger -->
       <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
         <a href="contact.html" class="btn btn-nav">Let's Talk</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
@@ -81,28 +96,28 @@
   <section class="stats-bar">
     <div class="container stats-grid">
 
-      <div class="stat-item">
+      <div class="stat-item reveal">
         <strong>200+</strong>
         <span>Projects Delivered</span>
       </div>
 
       <div class="stat-divider"></div>
 
-      <div class="stat-item">
+      <div class="stat-item reveal">
         <strong>98%</strong>
         <span>Client Satisfaction</span>
       </div>
 
       <div class="stat-divider"></div>
 
-      <div class="stat-item">
+      <div class="stat-item reveal">
         <strong>5+</strong>
         <span>Years of Experience</span>
       </div>
 
       <div class="stat-divider"></div>
 
-      <div class="stat-item">
+      <div class="stat-item reveal">
         <strong>40+</strong>
         <span>Team Members</span>
       </div>
@@ -115,36 +130,35 @@
   <section class="services">
     <div class="container">
 
-      <div class="section-title">
-        <p class="section-label">What We Do</p>
+      <div class="section-title reveal">
         <h2>We help businesses show up online — and stand out.</h2>
         <p>Whether you're launching your first site or scaling to the next level, we've got you.</p>
       </div>
 
       <div class="cards-grid">
 
-        <div class="card">
+        <div class="card reveal">
           <div class="card-icon"><i class="fa-solid fa-code"></i></div>
           <h3>Web Development</h3>
           <p>We build websites that load fast, look great on every screen, and are easy for your team to manage.</p>
           <a href="services.html" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <div class="card-icon"><i class="fa-solid fa-pen-ruler"></i></div>
           <h3>UI/UX Design</h3>
           <p>Good design isn't just pretty — it guides people. We design experiences your users will actually enjoy.</p>
           <a href="services.html" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
           <h3>SEO Optimization</h3>
           <p>We help you get found by the right people at the right time — without the smoke and mirrors.</p>
           <a href="services.html" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
           <h3>Cloud Solutions</h3>
           <p>Solid, secure infrastructure that grows with you — so you never have to worry about things breaking.</p>
@@ -161,7 +175,7 @@
   <section class="testimonials">
     <div class="container">
 
-      <div class="section-title">
+      <div class="section-title reveal">
         <p class="section-label">Client Stories</p>
         <h2>Here's what people are saying.</h2>
         <p>We don't just talk about results — our clients do it for us.</p>
@@ -169,7 +183,7 @@
 
       <div class="testimonials-grid">
 
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal">
           <!-- Star rating -->
           <div class="stars">
             <i class="fa-solid fa-star"></i>
@@ -189,7 +203,7 @@
           </div>
         </div>
 
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal">
           <div class="stars">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>

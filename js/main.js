@@ -205,3 +205,70 @@ function clearError(fieldId, errorId) {
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
+
+// ===========================
+// LOADING SCREEN
+// ===========================
+
+const loader = document.getElementById('loader');
+
+// When the page has fully loaded, fade out the loader
+window.addEventListener('load', function () {
+  // Short delay so the animation is visible
+  setTimeout(function () {
+    loader.classList.add('hidden');
+  }, 800);
+});
+
+
+// ===========================
+// DARK / LIGHT MODE TOGGLE
+// ===========================
+
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon   = document.getElementById('themeIcon');
+
+// Check if user previously chose dark mode and apply it immediately
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  themeIcon.classList.replace('fa-moon', 'fa-sun');
+}
+
+themeToggle.addEventListener('click', function () {
+  document.body.classList.toggle('dark-mode');
+
+  // Swap the icon and save the preference to localStorage
+  if (document.body.classList.contains('dark-mode')) {
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    themeIcon.classList.replace('fa-sun', 'fa-moon');
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+
+// ===========================
+// SCROLL REVEAL ANIMATION
+// ===========================
+
+// IntersectionObserver watches elements and fires when they enter the viewport
+const revealObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      // Element is visible — add the 'visible' class to trigger the CSS animation
+      entry.target.classList.add('visible');
+      // Stop watching this element once it's revealed
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1 // Trigger when 10% of the element is visible
+});
+
+// Find all elements with the 'reveal' class and observe them
+const revealElements = document.querySelectorAll('.reveal');
+revealElements.forEach(function (el) {
+  revealObserver.observe(el);
+});

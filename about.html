@@ -17,6 +17,18 @@
 
 <body>
 
+  <!-- ===== LOADING SCREEN ===== -->
+  <div class="loader" id="loader">
+    <div class="loader-logo">
+      <i class="fa-solid fa-bolt"></i> TechFlow
+    </div>
+    <div class="loader-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
   <!-- ===== HEADER / NAVBAR ===== -->
   <header id="header">
     <nav class="navbar container">
@@ -36,6 +48,9 @@
 
       <!-- Right side: CTA button + hamburger -->
       <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
         <a href="contact.html" class="btn btn-nav">Let's Talk</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
@@ -97,14 +112,14 @@
   <section class="values">
     <div class="container">
 
-      <div class="section-title">
+      <div class="section-title reveal">
         <p class="section-label">What Drives Us</p>
         <h2>The things we actually believe in.</h2>
       </div>
 
       <div class="values-grid">
 
-        <div class="value-card">
+        <div class="value-card reveal">
           <div class="value-icon">
             <i class="fa-solid fa-lightbulb"></i>
           </div>
@@ -112,7 +127,7 @@
           <p>We're always exploring what's next — not because it's trendy, but because better tools mean better results for you.</p>
         </div>
 
-        <div class="value-card">
+        <div class="value-card reveal">
           <div class="value-icon">
             <i class="fa-solid fa-handshake"></i>
           </div>
@@ -120,7 +135,7 @@
           <p>We say what we mean, charge what's fair, and only take on work we know we can do well. Simple as that.</p>
         </div>
 
-        <div class="value-card">
+        <div class="value-card reveal">
           <div class="value-icon">
             <i class="fa-solid fa-rocket"></i>
           </div>
@@ -138,7 +153,7 @@
   <section class="team">
     <div class="container">
 
-      <div class="section-title">
+      <div class="section-title reveal">
         <p class="section-label">Meet the Team</p>
         <h2>The humans behind the work.</h2>
         <p>We're a pretty diverse bunch — but we all share the same goal: doing great work for great clients.</p>
@@ -146,37 +161,37 @@
 
       <div class="team-grid">
 
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo">JD</div>
           <h3>Jessica Davis</h3>
           <p>Founder & CEO</p>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo">MR</div>
           <h3>Marcus Rodriguez</h3>
           <p>Lead Developer</p>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo">EP</div>
           <h3>Emily Parker</h3>
           <p>Head of Design</p>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo">AL</div>
           <h3>Alex Liu</h3>
           <p>Product Strategist</p>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo">SK</div>
           <h3>Sarah Kim</h3>
           <p>Marketing Lead</p>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo">DM</div>
           <h3>David Martinez</h3>
           <p>Senior Engineer</p>

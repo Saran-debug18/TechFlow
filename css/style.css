@@ -1,5 +1,5 @@
 /* ===========================
-   CSS VARIABLES
+   CSS VARIABLES — LIGHT MODE (default)
 =========================== */
 :root {
   --primary:      #2563eb;
@@ -10,6 +10,33 @@
   --white:        #ffffff;
   --border:       #e2e8f0;
   --card-shadow:  0 4px 24px rgba(0, 0, 0, 0.07);
+
+  /* Page background and surface colours — swapped in dark mode */
+  --bg:           #ffffff;
+  --surface:      #f1f5f9;
+  --heading:      #0f172a;
+  --body-text:    #475569;
+  --card-bg:      #ffffff;
+  --input-bg:     #f1f5f9;
+}
+
+/* ===========================
+   CSS VARIABLES — DARK MODE
+   Applied when <body> has class "dark-mode"
+=========================== */
+body.dark-mode {
+  --bg:           #0f172a;
+  --surface:      #1e293b;
+  --heading:      #f1f5f9;
+  --body-text:    #94a3b8;
+  --card-bg:      #1e293b;
+  --input-bg:     #0f172a;
+  --border:       #334155;
+  --white:        #1e293b;
+  --light-bg:     #1e293b;
+  --dark:         #f1f5f9;
+  --text:         #94a3b8;
+  --card-shadow:  0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* ===========================
@@ -27,9 +54,10 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--white);
-  color: var(--text);
+  background-color: var(--bg);
+  color: var(--body-text);
   line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 a {
@@ -300,6 +328,7 @@ section {
   line-height: 1.15;
   margin-bottom: 20px;
   letter-spacing: -1px;
+  color: #ffffff; /* Always white — never affected by dark mode variables */
 }
 
 /* Gradient highlight on the key word */
@@ -322,7 +351,7 @@ section {
 .hero-buttons {
   display: flex;
   gap: 16px;
-  flex-wrap: wrap; /* Wraps on very small screens */
+  flex-wrap: wrap;
 }
 
 
@@ -578,12 +607,13 @@ section {
   font-weight: 800;
   margin-bottom: 14px;
   letter-spacing: -0.5px;
+  color: #ffffff;
 }
 
 .cta-content p {
   font-size: 17px;
   margin-bottom: 36px;
-  opacity: 0.85;
+  color: rgba(255, 255, 255, 0.85);
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -808,7 +838,7 @@ footer {
 =========================== */
 .page-hero {
   background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1d4ed8 100%);
-  color: var(--white);
+  color: #ffffff;
   padding: 80px 0;
   text-align: center;
 }
@@ -834,6 +864,7 @@ footer {
   max-width: 680px;
   margin: 0 auto;
   letter-spacing: -0.5px;
+  color: #ffffff; /* Always white on dark gradient background */
 }
 
 
@@ -1579,3 +1610,118 @@ footer {
   }
 
 }
+
+
+/* ===========================
+   LOADING SCREEN
+   Full-screen overlay that fades out after page loads
+=========================== */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* JS adds this class to fade it out */
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animated logo text */
+.loader-logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.loader-logo i {
+  color: #60a5fa;
+}
+
+/* Three bouncing dots */
+.loader-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.loader-dots span {
+  width: 10px;
+  height: 10px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+/* Each dot bounces with a slight delay */
+.loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  from { transform: translateY(0);    opacity: 0.5; }
+  to   { transform: translateY(-12px); opacity: 1;   }
+}
+
+
+/* ===========================
+   DARK MODE TOGGLE BUTTON
+   Sits in the navbar next to "Let's Talk"
+=========================== */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  background: var(--light-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--dark);
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: rotate(20deg);
+}
+
+
+/* ===========================
+   SCROLL REVEAL ANIMATION
+   Elements start invisible and slide up into view
+=========================== */
+
+/* Default hidden state — applied via JS on page load */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Visible state — JS adds this when element enters the viewport */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay for cards in a grid — each child animates slightly later */
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
